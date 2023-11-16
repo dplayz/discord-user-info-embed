@@ -1,6 +1,6 @@
 
 <img src="" align="left"
-     alt="dplayz/icon-font-library" width="125" height="125">
+     alt="dplayz/discord-user-embed" width="125" height="125">
 ### dplayz/discord-user-embed  
 A site that can be used to embed your discord user info easily
 
