@@ -60,7 +60,6 @@ async function init(data) {
                 var timeEnd = element.timestamps.end;
 
                 var percentCalc =  ((timeNow - timeStart) / (timeEnd - timeStart) ) * 100
-                console.log(percentCalc);
                 div.innerHTML = ('<div id="spotifyProgBarCover"><img draggable="false" alt="" width="64" height="64" src="' +
                 data.spotify['album_art_url'] + '"><progress id="file" value="' + percentCalc + '" max="100"></progress> </div>'
                 + '<ul>'+"<strong>" + element['name'] + "</strong>"+'<li>' + songinfo.join("</li><li>") + "</li>");
