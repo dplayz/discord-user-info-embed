@@ -15,7 +15,7 @@ A site that can be used to embed your discord user info easily
 <script>
 iFrameResize({});
 </script>
-```
+```  
 3. Check if it works  
 
 For more info on how it works, see here:
@@ -29,6 +29,7 @@ Send a PR at ``/pulls``
 
 # Upcoming Plans?
 - [ ] Online Status
+- [ ] Accent color (until I still have Nitro, or nah)
 - [ ] Custom Status Message
 - [ ] Full dcdn support for assets
     - [ ] Banner Image
@@ -56,4 +57,4 @@ I'm too hesitant for that because:
 # Attributions and License
 ``./lanyard.js`` and mostly ``./index.js`` are owned by their rightful owner. I don't mean to discredit their work. I did just modify it to work in my use case.  
 Discord branding and logo are owned by Discord Inc.  
-Otherwise, 
+Otherwise, works are owned by the project contributors.
