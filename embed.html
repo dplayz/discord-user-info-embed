@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <title>Lanyard UI</title>
+    <script src="/lanyard.js"></script>
+    <script src="/dcdn.js"></script>
+    <script src="/index.js"></script>
+    <link href="/index.css" rel="stylesheet">
+    <script>var userid = urlParamValues.id;</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<body onload="presenceOnload()">
+    <main id="container">
+        <section id="profileImages">
+            <div id="profileBanner">
+            </div>
+            <img id="avatar"
+            draggable="false"
+            alt=""
+            width="64"
+            height="64">
+        </section>
+
+        <section id="profileInfo">
+            <div id="profileID">
+                <p id="globalname" style="margin:0;"></p>
+                <p id="username" style="margin:0;"></p>
+                <span id="pronoun"></span>
+            </div>
+            <hr>
+            <div id="aboutMe">
+                <p style="font-size:8px;"><b>ABOUT ME</b></p>
+                <span id="aboutMeData"></span>
+            </div>
+        </section>
+        <section id="activities"></section>
+    </main>
+</body>
+</html>

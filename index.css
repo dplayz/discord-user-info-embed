@@ -1,0 +1,75 @@
+@import url('https://fonts.cdnfonts.com/css/gg-sans-2');
+main#container{
+    min-width:200px;
+    width:calc(100% - 20px);
+    max-width:500px;
+    background:#232428;
+    padding:10px;
+    border-radius:5px;
+    font-family: 'gg sans Normal ', sans-serif;
+/*  border:5px black solid; */
+    color:white;
+    font-size:10px;
+}
+section#profileImages > div#profileBanner{
+    height:90px;
+    width:calc(100% + 20px);
+    background-color:#232428;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    margin:-10px;
+    padding:0px;
+    border-radius:5px 5px 0px 0px;
+}
+@media (min-width:350px){
+    section#profileImages > div#profileBanner{
+        height:120px;
+    }
+}
+section#profileImages > img#avatar {
+    border-radius:100%;
+    border:5px solid #232428;
+    margin-top:-30px;
+
+}
+section#profileInfo{
+    background:#111214;
+    padding:5px;
+    border-radius:5px;
+    margin:2px;
+    border:1px solid black;
+}
+section#activities{
+    display: grid;
+    font-size:10px;
+}
+li, ul{
+    list-style-type: none;
+    padding:0px !important;
+}
+section#activities > div{
+    background:#111214;
+    padding:5px;
+    border-radius:5px;
+    margin:2px;
+    border: 0.5px black solid;
+    display: grid;
+}
+section#activities > div.activity{
+    display: grid;
+    column-gap:10px;
+    grid-template-columns: 64px auto;
+}
+section#activities > div.activity p{
+    padding:0px;
+    margin:0px;
+}
+section#activities > div.activity > div:first-child,
+section#activities > div.activity > div:first-child *{
+    width:64px;
+}
+section#activities > div.activity > div:nth-child(2){
+    list-style: none;
+    margin:0%
+}
