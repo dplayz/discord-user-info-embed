@@ -17,7 +17,6 @@ function dcdnFetch(id){
         // Handle the data
 //      console.log(data);
         window.dcdnData = data
-        console.log(dcdnData);
         document.getElementById("profileBanner").style.backgroundColor = dcdnData.user.banner_color ? dcdnData.user.banner_color : null;
         if (dcdnData.user.banner !== undefined ) {
         document.getElementById("profileBanner").style.backgroundImage = `url('https://cdn.discordapp.com/banners/${dcdnData.user.id}/${dcdnData.user.banner}?size=480')`

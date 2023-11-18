@@ -11,7 +11,7 @@ const endpoints = {
     DCDNAPI: `https://dcdn.dstn.to`,
     HEARTBEAT_PERIOD: 100 * 30
 }
-console.log(endpoints.LANYARDAPI)
+
 function largeImageSourceConvertion(source, appId){
     if (source.includes("mp:")){
         var actLargeImageSource = source.replace('mp:', '');
@@ -29,7 +29,6 @@ async function init(data) {
     // initialize an global cache
     window.jsonCache = data
 
-    console.log(json);
     if (json.discord_user['discriminator'] == "0"){
         document.getElementById("username").innerHTML = json.discord_user['username'];
     } else{
@@ -45,7 +44,7 @@ async function init(data) {
     let activities = json.activities;
     let currentdiv = document.getElementById("activities");
     let curractiv = 1;
-    activities.forEach(element => {
+        activities.forEach(element => {
         // if not the status activity, continue
         if(element['type'] !== 4) {
             var div = document.createElement("div");
@@ -60,7 +59,6 @@ async function init(data) {
                 var timeEnd = element.timestamps.end;
 
                 var percentCalc =  ((timeNow - timeStart) / (timeEnd - timeStart) ) * 100
-                console.log(percentCalc);
                 div.innerHTML = ('<div id="spotifyProgBarCover"><img draggable="false" alt="" width="64" height="64" src="' +
                 data.spotify['album_art_url'] + '"><progress id="file" value="' + percentCalc + '" max="100"></progress> </div>'
                 + '<ul>'+"<strong>" + element['name'] + "</strong>"+'<li>' + songinfo.join("</li><li>") + "</li>");
@@ -116,11 +114,10 @@ async function updatepresence(isDataRecalc) {
     // Otherwise, ping the API for value, then update the global cache
         const json = await lanyard({userId: userid});
         window.jsonCache = json;
-        console.log(jsonCache)
     }
     let activities = json.activities;
     let currentdiv = document.getElementById("activities");
-    activities.forEach(element => {
+        activities.forEach(element => {
         // if not the status activity, continue
         if(element['type'] !== 4) {
             var activityname = element['name'].split(' ').join('').toLowerCase();
@@ -144,7 +141,6 @@ async function updatepresence(isDataRecalc) {
                 var timeEnd = element.timestamps.end;
 
                 var percentCalc =  ((timeNow - timeStart) / (timeEnd - timeStart) ) * 100
-                console.log(percentCalc);   
                 
                 div.innerHTML = '<div id="spotifyProgBarCover"><img draggable="false" alt="" width="64" height="64" src="' +
                     json.spotify['album_art_url'] + '"><progress id="file" value="' + percentCalc + '" max="100"></progress> </div>' + '<ul>'+"<li><strong>" + element['name'] + "</strong></li>" + '<li>' +
@@ -178,7 +174,7 @@ async function updatepresence(isDataRecalc) {
         }
 
     });
-
+    
     // get the difference of the current activities and the last, mostly just to remove activities that aren't active anymore
     let names = [];
     activities.forEach(e => {if(e['type'] !== 4)names.push(e['name'].split(' ').join('').toLowerCase())})
@@ -198,7 +194,7 @@ const presenceOnload = async () => {
     // init all of the original divs and main user details
     const start = async () => {
         var json = await lanyard({userId: userid});
-        init(json);
+        init(json); 
         window.jsonCache = json;
 
         function loop() {
