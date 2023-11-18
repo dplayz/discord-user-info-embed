@@ -48,7 +48,8 @@ li, ul{
     list-style-type: none;
     padding:0px !important;
 }
-section#activities > div{
+section#activities > div,
+main#container > section#activities:only-child:empty::before {
     background:#111214;
     padding:5px;
     border-radius:5px;
@@ -72,4 +73,9 @@ section#activities > div.activity > div:first-child *{
 section#activities > div.activity > div:nth-child(2){
     list-style: none;
     margin:0%
+}
+
+main#container > section#activities:only-child:empty::before {
+    content: "No activities detected. Either the user is offline, user not recognized, or presence is not detected.";
+    text-align: center;
 }
