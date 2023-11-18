@@ -23,7 +23,7 @@ function dcdnFetch(id){
         document.getElementById("profileBanner").style.backgroundImage = `url('https://cdn.discordapp.com/banners/${dcdnData.user.id}/${dcdnData.user.banner}?size=480')`
         }
         document.getElementById("pronoun").innerHTML = dcdnData.user_profile.pronouns ? dcdnData.user_profile.pronouns : null;
-        document.getElementById("aboutMeData").innerHTML = marked.parse(dcdnData.user_profile.bio).replace(/\n/g, '<br>');
+        document.getElementById("aboutMeData").innerHTML = marked.parse(dcdnData.user_profile.bio).replace(/\n/g, '<br>').replace(/a href=/g, 'a target="_parent" href=');
       })
       .catch(error => {
         // Handle errors
