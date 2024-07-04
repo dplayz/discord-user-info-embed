@@ -111,9 +111,10 @@ async function updatepresence(isDataRecalc) {
     // If it's just recalculating, get the value from cache for updating
     var json = jsonCache;
     } else {
-    // Otherwise, ping the API for value, then update the global cache
+    // Otherwise, ping the API for value, then update the global cache, and return
         const json = await lanyard({userId: userid});
         window.jsonCache = json;
+        return
     }
     let activities = json.activities;
     let currentdiv = document.getElementById("activities");
