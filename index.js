@@ -92,17 +92,20 @@ async function init(data) {
             }
 
             currentdiv.appendChild(div);
-        } else {
+        } else {    
+            if (element['state'] !== undefined || element['emoji'] !== undefined ) {
+                document.getElementById("statusMessageContainer").style.visibility = "visible";
+            } 
             // if it is the status, set the src of the emoji img and the status text itself
             //document.getElementById("statusemoji").src = "https://cdn.discordapp.com/emojis/" + element.emoji['id'] + (element.emoji['animated'] ? ".gif" : ".png");
-
-            if (json.activities[0].emoji.id !== undefined) {
-                document.getElementById("statusemoji").innerHTML = '<img draggable="false" width="32px" alt="" src="https://cdn.discordapp.com/emojis/' + element.emoji['id'] + (element.emoji['animated'] ? ".gif" : ".webp") + '?size=44&quality=lossless">'
+            if (element['emoji'] !== undefined && element['emoji'].id !== undefined) {
+                document.getElementById("statusEmoji").innerHTML = '<img draggable="false" width="32px" alt="" src="https://cdn.discordapp.com/emojis/' + element['emoji']['id'] + (element['emoji']['animated'] ? ".gif" : ".webp") + '?size=44&quality=lossless">'
             } 
-            else {
-                document.getElementById("statusemoji").innerHTML = json.activities[0].emoji.name;
+            else if (element['emoji'] !== undefined && element['emoji'].name !== undefined){
+                document.getElementById("statusEmoji").innerText = element.emoji.name;
             }
-            document.getElementById("status").innerHTML = json.activities[0].state ? json.activities[0].state : "";
+            document.getElementById("statusMessage").innerText = element['state'] ? element['state'] : "";
+
         }
     });
 }

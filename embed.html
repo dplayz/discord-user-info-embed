@@ -14,22 +14,26 @@
         <section id="profileImages">
             <div id="profileBanner">
             </div>
-            <img id="avatar"
-            draggable="false"
-            alt=""
-            width="64"
-            height="64">
+            <div id="profileImgAndStatusContainer">
+                <img id="avatar"
+                draggable="false"
+                alt=""
+                width="100"
+                height="100">
+                <div id="statusMessageContainer">
+                    <span id="statusEmoji"></span>
+                    <span id="statusMessage" style="margin:0;"></span>
+                </div>
+            </div>
         </section>
 
         <section id="profileInfo">
             <div id="profileID">
-                <p id="globalname" style="margin:0;"></p>
-                <p id="username" style="margin:0;"></p>
-                <span id="pronoun"></span>
-            </div>
-            <hr>
+                <p id="globalname" style="margin:0; font-weight: bold;"></p>
+                <span id="username" style="margin:0;"></span> ⏺ <span id="pronoun"></span>
+
+            </div>      
             <div id="aboutMe">
-                <p style="font-size:8px;"><b>ABOUT ME</b></p>
                 <span id="aboutMeData"></span>
             </div>
         </section>

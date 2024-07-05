@@ -3,13 +3,14 @@ main#container{
     min-width:200px;
     width:calc(100% - 20px);
     max-width:500px;
-    background:#232428;
+    background:#111214;
     padding:10px;
-    border-radius:5px;
+    border-radius:7px;
     font-family: 'gg sans Normal ', sans-serif;
 /*  border:5px black solid; */
     color:white;
-    font-size:10px;
+    font-size:17px;
+    box-shadow: .35px .35px 5px 5px #888888;
 }
 section#profileImages > div#profileBanner{
     height:90px;
@@ -27,31 +28,58 @@ section#profileImages > div#profileBanner{
         height:120px;
     }
 }
-section#profileImages > img#avatar {
-    border-radius:100%;
-    border:5px solid #232428;
-    margin-top:-30px;
+section#profileImages > div#profileImgAndStatusContainer {    
+    display: grid;
+    margin-top:-60px;
+    align-items: center;
+    grid-column: auto;
+    grid-template-columns: 125px fit-content(100%);
 
 }
+section#profileImages > div#profileImgAndStatusContainer img#avatar {
+    border-radius:100%;
+    border:10px solid #232428;
+}
+section#profileImages > div#profileImgAndStatusContainer div#statusMessageContainer {
+    visibility: hidden;
+    padding:10px;
+    border-radius:10px;
+    background-color:#232428;
+    max-height: 65px;
+    overflow-y: scroll;
+    box-shadow: .10px .10px 2px 2px #111;
+}
+section#profileImages > div#profileImgAndStatusContainer > div#statusMessageContainer > span {
+    display: inline;
+    font-size: 25px;
+    word-wrap: break-word;
+}
 section#profileInfo{
-    background:#111214;
     padding:5px;
     border-radius:5px;
     margin:2px;
-    border:1px solid black;
+}
+section#profileInfo div#profileID p#globalname{
+    font-size: 30px;
+}
+div#aboutMe a:visited{
+    color:blue;
 }
 section#activities{
     display: grid;
-    font-size:10px;
+    /*font-size:1px;*/
 }
-li, ul{
+section#activities div > img{
+    border-radius: 7.5px;
+}
+ul, li  {
     list-style-type: none;
-    padding:0px !important;
+    padding: 0px
+
 }
 section#activities > div,
 main#container > section#activities:only-child:empty::before {
     background:#111214;
-    padding:5px;
     border-radius:5px;
     margin:2px;
     border: 0.5px black solid;
@@ -59,8 +87,11 @@ main#container > section#activities:only-child:empty::before {
 }
 section#activities > div.activity{
     display: grid;
+    background:#232528;
     column-gap:10px;
     grid-template-columns: 64px auto;
+    align-items: center;
+    padding: 10px;
 }
 section#activities > div.activity p{
     padding:0px;
