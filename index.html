@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(v2)dp's Discord user profile embed</title>
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+  <style>
+    body{
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>dp's discord-user-profile-embed-v2</h1>
+    <p>A project that embeds Discord profile data, powered mainly by the Lanyard API and VueJS.</p>
+  </header>
+    <!--Paste these-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.min.js"></script>
+    <!-- For User info-->
+    <iframe id="userInfoIframe" src="/embed/?id=495543164829040651" width="100%" style="border:none;padding:0px;margin:0px; background:none transparent; background-color: transparent;" allowtransparency="true"></iframe>
+    <script>
+      iFrameResize({});
+    </script>
+  <main>
+    <h2>What powers this?</h2>
+    <p>I'm grateful to these underlying projects and frameworks for making this project possible:</p>
+    <h3>APIs</h3>
+    <ul>
+      <li>Lanyard's WebSocket API (ws://api.lanyard.dev)</li>
+      <li>dcdn.dstn.co </li>
+    </ul>
+    <h3>UI</h3>
+    <ul>
+      <li>VueJS (vuejs.org)</li>
+      <li>Iframe Resizer (https://github.com/davidjbradshaw/iframe-resizer)</li>
+      <li>marked (https://github.com/markedjs/marked)</li>
+    </ul>
+    <h3>and for the numerous sources I used to make it possible </h3>
+  </main>
+
+</body>
+</html>

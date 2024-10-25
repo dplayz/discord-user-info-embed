@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <main id="container">
+        <section id="profileImages">
+            <div id="profileBanner" v-bind:style="'background-color:'+ state.profileData.user.banner_color + ';'">
+            </div>
+            <div id="profileImgAndStatusContainer">
+                <img id="avatar"
+                draggable="false"
+                alt=""
+                v-bind:src="'https://cdn.discordapp.com/avatars/'+  state.data.discord_user.id + '/' + state.data.discord_user.avatar"
+                width="100"
+                height="100">
+                <div v-if="state.data.activities && state.data.activities[0].type == 4" id="statusMessageContainer">
+                    <span v-if="state.data.activities[0].type == 4 && state.data.activities[0].emoji" id="statusEmoji">{{state.data.activities[0].emoji.name}}</span>
+                    <span v-if="state.data.activities[0].type == 4" id="statusMessage" style="margin:0;">{{state.data.activities[0].state}}</span>
+                </div>
+            </div>
+        </section>
+        <section id="profileInfo">
+            <div id="profileID">
+                <p id="globalname" style="margin:0; font-weight: bold;">{{ state.data.discord_user.display_name }}</p>
+                <span id="username" style="margin:0;">{{ state.data.discord_user.username }}</span> ⏺ {{ state.profileData.user_profile.pronouns }}</span>
+            </div>      
+            <div id="aboutMe">
+                <details>
+                    <summary><b>About Me:</b></summary>
+                    <span v-html="state.profileData.user_profile.bio"></span>
+                  </details> 
+                <span id="aboutMeData"></span>
+            </div>
+        </section>
+        <section id="activities" v-for="item in state.data.activities">
+            <div v-if="item.name == 'Spotify'" v-bind:data-activity-id="item.id" class="activity">
+                <img width="64" height="64" v-bind:src="state.data.spotify.album_art_url">
+                <span>
+                    <p class="activityName">Listening to <b>Spotify</b></p>
+                    <p>{{state.data.spotify.song}}</p>
+                    <p>{{state.data.spotify.artist}} | {{state.data.spotify.album}}</p>
+                    <span>
+                        <span class="progressBarStart timer" v-bind:data-time-start="state.data.spotify.timestamps.start" data-time-what="progress"></span>
+                        <progress class="progressBar timer" v-bind:data-time-start="state.data.spotify.timestamps.start" v-bind:data-time-end="state.data.spotify.timestamps.end" data-time-what="progressBar" max="100"></progress>
+                        <span class="progressBarEnd timer" v-bind:data-time-start="state.data.spotify.timestamps.start" v-bind:data-time-end="state.data.spotify.timestamps.end" data-time-what="duration"></span>
+                    </span>
+                </span>
+            </div>
+            <div v-else-if="item.type !== 4" v-bind:data-activity-id="item.id" class="activity">
+                <div class="activityIcons" v-if="item.assets">  
+                  <img width="64" height="64" v-bind:src="item.assets.large_image">
+                  <img v-if="item.assets.small_image" class="smallActivityImage" width="16" height="16" v-bind:src="item.assets.small_image">
+                </div>
+                <span>
+                    <p class="activityName">Playing <b>{{item.name}}</b></p>
+                    <p v-if="item.details" class="activityDetails">{{item.details}}</p>
+                    <p v-if="item.state" class="activityDetails">{{item.state}}</p>
+                    <span v-if="item.timestamps && item.timestamps.start && item.timestamps.end">
+                      <span class="timer progressBarStart" v-bind:data-time-start="item.timestamps.start" v-bind:data-time-end="item.timestamps.end" data-time-what="remaining"></span>
+                    </span>
+                    <span v-if="item.timestamps && item.timestamps.start && item.timestamps.end == undefined">
+                      <span class="progressBarStart timer" v-bind:data-time-start="item.timestamps.start" data-time-what="elapsed"></span>
+                  </span>
+                </span>
+            </div>  
+        </section>
+    </main>
+  </div>  
+  <script src="/script/vueInit.js"></script>
+  <script defer src="/script/script.js"></script>
+  <script src="/script/timerUpdate.js"></script>
+</body>
+</html>
