@@ -11,7 +11,7 @@
 <body>
   <div id="app">
     <main id="container">
-        <section id="profileImages">
+        <section id="profileImages" v-if="state.urlparams.activities != 'true'">
             <div id="profileBanner" v-bind:style="'background-color:'+ state.profileData.user.banner_color + ';'">
             </div>
             <div id="profileImgAndStatusContainer">
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </section>
-        <section id="profileInfo">
+        <section id="profileInfo" v-if="state.urlparams.activities != 'true'">
             <div id="profileID">
                 <p id="globalname" style="margin:0; font-weight: bold;">{{ state.data.discord_user.display_name }}</p>
                 <span id="username" style="margin:0;">{{ state.data.discord_user.username }}</span> ⏺ {{ state.profileData.user_profile.pronouns }}</span>
