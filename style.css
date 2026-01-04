@@ -18,6 +18,9 @@ main#container{
     font-size:17px;
     box-shadow: .35px .35px 5px 5px #888888;
 }
+main#container:empty{
+    display:none;
+}
 section#profileImages > div#profileBanner{
     height:90px;
     width:calc(100% + 20px);
