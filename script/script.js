@@ -13,8 +13,13 @@ var profileData;
 
 function updateDiscordData(data){
     var newData = {data: {}, profileData: {}};
+        // ensure url params are available on the nested `data` object
+        data = data || {};
+        data.urlparams = urlParamValues;
+        // also keep top-level urlparams (optional)
+        newData.urlparams = urlParamValues;
         newData.data = data;
-        newData.profileData = profileData
+        newData.profileData = profileData;
     Object.assign(discordData, newData);
 }
 
@@ -23,6 +28,7 @@ const initializeData = async () => {
         const getProfileData = async () => {
             const response = await fetch(`${dcdnAPI}`, { cache: "force-cache" });
             const data = await response.json(); 
+            data.urlparams = urlParamValues;
             data.user_profile.bio = marked.parse(data.user_profile.bio)
             return data;
         };
