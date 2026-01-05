@@ -10,10 +10,12 @@ A site that can be used to embed your discord user info easily
 1. Join the [Lanyard Discord server](https://discord.com/invite/UrXF2cfJ7F)
 2. Paste these lines of code to your page of choice
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.min.js"></script>
-<iframe id="activitiesIframe" src="https://discorduserembed.dplayzgames06.tk/embed/?id=<replace this with your discord ID>" width="100%" style="border:none;padding:0px;margin:0px;" allowtransparency></iframe>
+<!--Paste these-->
+<script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@latest"></script>
+<!-- For User info-->
+<iframe id="userInfoIframe" src="https://dist.dpg06.top/discord-user-embed/v2/embed/index.html?id=[userid]&activities=[true|false]" width="100%" style="border:none;padding:0px;margin:0px; background:none transparent; background-color: transparent;" allowtransparency="true"></iframe>
 <script>
-iFrameResize({});
+iframeResize({ license: 'GPLv3', log: 'collapsed'})
 </script>
 ```  
 3. Check if it works  
