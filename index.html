@@ -17,12 +17,21 @@
     <p>A project that embeds Discord profile data, powered mainly by the Lanyard API and VueJS.</p>
   </header>
     <!--Paste these-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@latest"></script>
     <!-- For User info-->
-    <iframe id="userInfoIframe" src="/embed/?id=495543164829040651" width="100%" style="border:none;padding:0px;margin:0px; background:none transparent; background-color: transparent;" allowtransparency="true"></iframe>
+    <iframe id="userInfoIframe" src="./embed/?id=495543164829040651" width="100%" style="border:none;padding:0px;margin:0px; background:none transparent; background-color: transparent;" allowtransparency="true"></iframe>
     <script>
-      iFrameResize({});
+      iframeResize({ license: 'GPLv3', log: 'collapsed'})
     </script>
+    <code>
+      &lt;!--Paste these--&gt; <br>
+      &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@latest&quot;&gt;&lt;/script&gt; <br> <br>
+      &lt;!-- For User info--&gt; <br>
+      &lt;iframe id=&quot;userInfoIframe&quot; src=&quot;https://dist.dpg06.top/discord-user-embed/v2/embed/index.html?id=[userid]&amp;activities=[true|false]&quot; width=&quot;100%&quot; style=&quot;border:none;padding:0px;margin:0px; background:none transparent; background-color: transparent;&quot; allowtransparency=&quot;true&quot;&gt;&lt;/iframe&gt; <br>
+      &lt;script&gt;
+        iframeResize({ license: 'GPLv3', log: 'collapsed'})
+      &lt;/script&gt; 
+    </code>
   <main>
     <h2>What powers this?</h2>
     <p>I'm grateful to these underlying projects and frameworks for making this project possible:</p>
